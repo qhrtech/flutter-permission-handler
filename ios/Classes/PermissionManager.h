@@ -11,9 +11,6 @@
 
 #import "AudioVideoPermissionStrategy.h"
 #import "PermissionStrategy.h"
-#import "PhonePermissionStrategy.h"
-#import "PhotoPermissionStrategy.h"
-#import "SpeechPermissionStrategy.h"
 #import "UnknownPermissionStrategy.h"
 #import "PermissionHandlerEnums.h"
 #import "Codec.h"

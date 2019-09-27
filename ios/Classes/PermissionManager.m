@@ -79,12 +79,6 @@
             return [AudioVideoPermissionStrategy new];
             case PermissionGroupMicrophone:
             return [AudioVideoPermissionStrategy new];
-            case PermissionGroupPhone:
-            return [PhonePermissionStrategy new];
-            case PermissionGroupPhotos:
-            return [PhotoPermissionStrategy new];
-            case PermissionGroupSpeech:
-            return [SpeechPermissionStrategy new];
         default:
             return [UnknownPermissionStrategy new];
     }
