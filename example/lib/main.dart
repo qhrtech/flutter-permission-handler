@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -26,18 +24,7 @@ class MyApp extends StatelessWidget {
           child: ListView(
               children: PermissionGroup.values
                   .where((PermissionGroup permission) {
-                    if (Platform.isIOS) {
-                      return permission != PermissionGroup.unknown &&
-                          permission != PermissionGroup.sms &&
-                          permission != PermissionGroup.storage &&
-                          permission !=
-                              PermissionGroup.ignoreBatteryOptimizations;
-                    } else {
-                      return permission != PermissionGroup.unknown &&
-                          permission != PermissionGroup.mediaLibrary &&
-                          permission != PermissionGroup.photos &&
-                          permission != PermissionGroup.reminders;
-                    }
+                    return permission != PermissionGroup.unknown;
                   })
                   .map((PermissionGroup permission) =>
                       PermissionWidget(permission))
