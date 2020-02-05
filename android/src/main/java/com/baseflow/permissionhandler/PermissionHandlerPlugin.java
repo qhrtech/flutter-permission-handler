@@ -54,9 +54,7 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
 
   @Retention(RetentionPolicy.SOURCE)
   @IntDef({
-      PERMISSION_GROUP_CAMERA,
-      PERMISSION_GROUP_MICROPHONE,
-      PERMISSION_GROUP_UNKNOWN,
+      PERMISSION_GROUP_CAMERA
   })
   private @interface PermissionGroup {
   }
