@@ -87,10 +87,6 @@ class PermissionGroup {
   /// iOS: Photos (Camera Roll and Camera)
   static const PermissionGroup camera = PermissionGroup._(0);
 
-  /// Android: Microphone
-  /// iOS: Microphone
-  static const PermissionGroup microphone = PermissionGroup._(1);
-
   /// Android: Ignore Battery Optimizations
   static const PermissionGroup ignoreBatteryOptimizations =
       PermissionGroup._(15);
@@ -100,7 +96,6 @@ class PermissionGroup {
 
   static const List<PermissionGroup> values = <PermissionGroup>[
     camera,
-    microphone,
     unknown,
   ];
 
