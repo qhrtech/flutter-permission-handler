@@ -101,7 +101,6 @@ class PermissionGroup {
 
   static const List<String> _names = <String>[
     'camera',
-    'microphone',
     'unknown',
   ];
 
