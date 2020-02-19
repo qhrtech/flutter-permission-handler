@@ -380,7 +380,6 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
         if (hasPermissionInManifest(Manifest.permission.CAMERA))
           permissionNames.add(Manifest.permission.CAMERA);
         break;
-
       case PERMISSION_GROUP_UNKNOWN:
         return null;
     }
