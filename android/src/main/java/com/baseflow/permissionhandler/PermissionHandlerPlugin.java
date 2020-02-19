@@ -45,7 +45,6 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
 
   //PERMISSION_GROUP
   private static final int PERMISSION_GROUP_CAMERA = 0;
-  private static final int PERMISSION_GROUP_MICROPHONE = 1;
   private static final int PERMISSION_GROUP_UNKNOWN = 3;
 
   private PermissionHandlerPlugin(Registrar mRegistrar) {
@@ -55,7 +54,6 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
   @Retention(RetentionPolicy.SOURCE)
   @IntDef({
       PERMISSION_GROUP_CAMERA,
-      PERMISSION_GROUP_MICROPHONE,
       PERMISSION_GROUP_UNKNOWN,
   })
   private @interface PermissionGroup {
@@ -131,8 +129,6 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
     switch (permission) {
       case Manifest.permission.CAMERA:
         return PERMISSION_GROUP_CAMERA;
-      case Manifest.permission.RECORD_AUDIO:
-        return PERMISSION_GROUP_MICROPHONE;
       default:
         return PERMISSION_GROUP_UNKNOWN;
     }
@@ -322,11 +318,7 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
       if (permission == PERMISSION_GROUP_UNKNOWN)
         continue;
 
-      if (permission == PERMISSION_GROUP_MICROPHONE) {
-        if (!mRequestResults.containsKey(PERMISSION_GROUP_MICROPHONE)) {
-          mRequestResults.put(PERMISSION_GROUP_MICROPHONE, toPermissionStatus(grantResults[i]));
-        }
-      } else if (!mRequestResults.containsKey(permission)) {
+      if (!mRequestResults.containsKey(permission)) {
         mRequestResults.put(permission, toPermissionStatus(grantResults[i]));
       }
     }
@@ -388,12 +380,6 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
         if (hasPermissionInManifest(Manifest.permission.CAMERA))
           permissionNames.add(Manifest.permission.CAMERA);
         break;
-
-      case PERMISSION_GROUP_MICROPHONE:
-        if (hasPermissionInManifest(Manifest.permission.RECORD_AUDIO))
-          permissionNames.add(Manifest.permission.RECORD_AUDIO);
-        break;
-
       case PERMISSION_GROUP_UNKNOWN:
         return null;
     }

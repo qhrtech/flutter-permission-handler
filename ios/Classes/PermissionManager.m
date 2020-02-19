@@ -77,8 +77,6 @@
     switch (permission) {
             case PermissionGroupCamera:
             return [AudioVideoPermissionStrategy new];
-            case PermissionGroupMicrophone:
-            return [AudioVideoPermissionStrategy new];
         default:
             return [UnknownPermissionStrategy new];
     }
